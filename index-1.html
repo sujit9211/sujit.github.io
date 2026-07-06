@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sujit Sharma | Senior Cybersecurity Engineer</title>
+  <meta name="description" content="CISSP-certified Senior Cybersecurity Engineer with 10 years of experience across enterprise security engineering, SOC operations, cloud security, and incident response." />
+  <meta name="author" content="Sujit Sharma" />
+  <meta property="og:title" content="Sujit Sharma | Senior Cybersecurity Engineer" />
+  <meta property="og:description" content="CISSP-certified Senior Cybersecurity Engineer — Cloud Security | Incident Response | Detection Engineering" />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --background: hsl(222 45% 7%);
+      --foreground: hsl(210 25% 92%);
+      --card: hsl(222 38% 10%);
+      --primary: hsl(213 85% 62%);
+      --secondary: hsl(222 28% 15%);
+      --muted: hsl(222 25% 12%);
+      --muted-foreground: hsl(215 16% 62%);
+      --accent: hsl(38 82% 58%);
+      --destructive: hsl(0 68% 58%);
+      --border: hsl(222 22% 18%);
+      --font-heading: 'Inter', ui-sans-serif, system-ui, sans-serif;
+      --font-body: 'Inter', ui-sans-serif, system-ui, sans-serif;
+      --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: var(--background);
+      color: var(--foreground);
+      font-family: var(--font-body);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    /* Utilities */
+    .font-mono { font-family: var(--font-mono); }
+    .text-primary { color: var(--primary); }
+    .text-accent { color: var(--accent); }
+    .text-muted { color: var(--muted-foreground); }
+    .text-destructive { color: var(--destructive); }
+    .text-glow { text-shadow: 0 0 14px currentColor; }
+    .box-glow { box-shadow: 0 0 20px hsl(213 85% 62% / 0.12), inset 0 0 20px hsl(213 85% 62% / 0.04); }
+    .grid-bg {
+      background-image:
+        linear-gradient(hsl(213 85% 62% / 0.035) 1px, transparent 1px),
+        linear-gradient(90deg, hsl(213 85% 62% / 0.035) 1px, transparent 1px);
+      background-size: 48px 48px;
+    }
+    .scanline { background: none; }
+    @keyframes blink { 0%,49% { opacity: 1; } 50%,100% { opacity: 0; } }
+    .cursor-blink { animation: blink 1s infinite; }
+
+    /* Container */
+    .container { max-width: 1280px; margin: 0 auto; padding: 0 1.5rem; }
+
+    /* Navbar */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 50;
+      transition: all 0.3s;
+    }
+    nav.scrolled {
+      background: hsl(160 30% 3% / 0.8);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-inner {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1rem 1.5rem; max-width: 1280px; margin: 0 auto;
+    }
+    .nav-logo {
+      display: flex; align-items: center; gap: 0.5rem;
+      font-family: var(--font-mono); font-weight: 700;
+      color: var(--primary);
+    }
+    .nav-links { display: flex; align-items: center; gap: 2rem; }
+    .nav-links a {
+      font-family: var(--font-mono); font-size: 0.875rem;
+      color: var(--muted-foreground); transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--primary); }
+    .nav-links a span { color: hsl(213 85% 62% / 0.5); }
+    .nav-toggle { display: none; background: none; border: none; color: var(--primary); cursor: pointer; }
+    .nav-mobile {
+      display: none; flex-direction: column; gap: 1rem;
+      padding: 1rem 1.5rem;
+      background: hsl(160 30% 3% / 0.95);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-mobile a {
+      font-family: var(--font-mono); font-size: 0.875rem;
+      color: var(--muted-foreground);
+    }
+
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .nav-toggle { display: block; }
+      .nav-mobile.open { display: flex; }
+    }
+
+    /* Hero */
+    .hero {
+      position: relative; min-height: 100vh; display: flex; align-items: center;
+      padding-top: 5rem; padding-bottom: 3rem; overflow: hidden;
+    }
+    .hero-grid {
+      position: relative; max-width: 1280px; margin: 0 auto; padding: 0 1.5rem;
+      width: 100%; display: grid; gap: 2rem; align-items: center;
+      grid-template-columns: 1fr;
+    }
+    @media (min-width: 1024px) {
+      .hero-grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    .badge {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      padding: 0.375rem 0.75rem; border-radius: 9999px;
+      border: 1px solid hsl(213 85% 62% / 0.3);
+      background: hsl(213 85% 62% / 0.05);
+      font-family: var(--font-mono); font-size: 0.75rem;
+      color: var(--primary);
+    }
+    .badge .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--primary); animation: statuspulse 2.2s infinite; }
+    @keyframes statuspulse {
+      0% { box-shadow: 0 0 0 0 hsl(213 85% 62% / 0.5); }
+      70% { box-shadow: 0 0 0 6px hsl(213 85% 62% / 0); }
+      100% { box-shadow: 0 0 0 0 hsl(213 85% 62% / 0); }
+    }
+
+    .hero h1 { font-size: 3rem; font-weight: 700; line-height: 1.1; margin-top: 0.5rem; }
+    @media (min-width: 768px) { .hero h1 { font-size: 3.75rem; } }
+
+    .hero-subtitle { font-size: 1.25rem; color: var(--muted-foreground); font-weight: 500; margin-top: 0.5rem; }
+    @media (min-width: 768px) { .hero-subtitle { font-size: 1.5rem; } }
+
+    .hero-desc { color: var(--muted-foreground); font-size: 1rem; margin-top: 1.5rem; max-width: 32rem; }
+
+    .contact-row { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 1rem; }
+    .contact-chip {
+      display: flex; align-items: center; gap: 0.5rem;
+      padding: 0.5rem 1rem; border-radius: 0.5rem;
+      border: 1px solid var(--border); background: var(--card);
+      font-family: var(--font-mono); font-size: 0.875rem;
+      transition: all 0.2s;
+    }
+    .contact-chip:hover { border-color: hsl(213 85% 62% / 0.5); background: hsl(213 85% 62% / 0.05); }
+
+    .meta-row { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 0.5rem; font-size: 0.875rem; color: var(--muted-foreground); font-family: var(--font-mono); }
+    .meta-row span { display: flex; align-items: center; gap: 0.375rem; }
+
+    .globe-container { position: relative; height: 400px; }
+    @media (min-width: 768px) { .globe-container { height: 500px; } }
+    @media (min-width: 1024px) { .globe-container { height: 550px; } }
+    .globe-bg { position: absolute; inset: 0; border-radius: 50%; background: hsl(213 85% 62% / 0.05); filter: blur(60px); }
+    .globe-labels {
+      position: absolute; bottom: 1rem; left: 1rem; right: 1rem;
+      display: flex; justify-content: space-between;
+      font-family: var(--font-mono); font-size: 0.75rem;
+    }
+
+    /* Stats */
+    .stats { position: relative; padding: 3rem 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); background: hsl(160 25% 5% / 0.3); }
+    .stats-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+    @media (min-width: 1024px) { .stats-grid { grid-template-columns: repeat(4, 1fr); } }
+    .stat-card {
+      display: flex; flex-direction: column; align-items: center; text-align: center;
+      padding: 1.5rem; border-radius: 0.75rem; border: 1px solid var(--border);
+      background: hsl(160 30% 3% / 0.5); transition: all 0.2s;
+    }
+    .stat-card:hover { border-color: hsl(213 85% 62% / 0.4); }
+    .stat-card svg { width: 32px; height: 32px; margin-bottom: 0.75rem; }
+    .stat-value { font-size: 1.875rem; font-weight: 700; font-family: var(--font-mono); }
+    @media (min-width: 768px) { .stat-value { font-size: 2.25rem; } }
+    .stat-label { font-size: 0.875rem; color: var(--muted-foreground); margin-top: 0.25rem; }
+
+    /* Section */
+    section.content { padding: 5rem 0; }
+    .section-title { font-size: 1.875rem; font-weight: 700; }
+    @media (min-width: 768px) { .section-title { font-size: 2.25rem; } }
+    .section-cmd { font-family: var(--font-mono); font-size: 0.875rem; color: var(--accent); margin-bottom: 0.5rem; }
+    .section-desc { color: var(--muted-foreground); margin-top: 0.5rem; }
+
+    /* Expertise */
+    .exp-grid { display: grid; gap: 1.5rem; grid-template-columns: 1fr; margin-top: 3rem; }
+    @media (min-width: 768px) { .exp-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (min-width: 1024px) { .exp-grid { grid-template-columns: repeat(3, 1fr); } }
+    .exp-card {
+      position: relative; padding: 1.5rem; border-radius: 0.75rem;
+      border: 1px solid var(--border); background: hsl(160 25% 5% / 0.5);
+      transition: all 0.2s;
+    }
+    .exp-card:hover { border-color: hsl(213 85% 62% / 0.4); background: var(--card); }
+    .exp-card svg { width: 32px; height: 32px; color: var(--primary); margin-bottom: 1rem; }
+    .exp-card h3 { font-size: 1.125rem; font-weight: 600; margin-bottom: 0.75rem; }
+    .exp-card ul { list-style: none; }
+    .exp-card li { font-size: 0.875rem; color: var(--muted-foreground); display: flex; gap: 0.5rem; margin-bottom: 0.375rem; }
+    .exp-card li span { color: hsl(213 85% 62% / 0.5); font-family: var(--font-mono); }
+
+    /* Experience */
+    .timeline { position: relative; margin-top: 3rem; }
+    .timeline-line { position: absolute; left: 1rem; top: 0; bottom: 0; width: 1px; background: var(--border); }
+    @media (min-width: 768px) { .timeline-line { left: 1.5rem; } }
+    .timeline-item { position: relative; padding-left: 3rem; margin-bottom: 2rem; }
+    @media (min-width: 768px) { .timeline-item { padding-left: 4rem; } }
+    .timeline-node {
+      position: absolute; left: 0.625rem; top: 1.5rem; width: 16px; height: 16px;
+      border-radius: 50%; background: var(--background); border: 2px solid var(--primary);
+      box-shadow: 0 0 20px hsl(213 85% 62% / 0.15), inset 0 0 20px hsl(213 85% 62% / 0.05);
+    }
+    @media (min-width: 768px) { .timeline-node { left: 1.125rem; } }
+    .timeline-card {
+      padding: 1.5rem; border-radius: 0.75rem;
+      border: 1px solid var(--border); background: hsl(160 25% 5% / 0.5);
+      transition: all 0.2s;
+    }
+    .timeline-card:hover { border-color: hsl(213 85% 62% / 0.4); }
+    .timeline-header { display: flex; flex-direction: column; gap: 0.5rem; margin-bottom: 0.75rem; }
+    @media (min-width: 768px) { .timeline-header { flex-direction: row; align-items: center; justify-content: space-between; } }
+    .timeline-role { font-size: 1.125rem; font-weight: 600; color: var(--primary); }
+    .timeline-company { color: var(--muted-foreground); }
+    .timeline-period {
+      font-family: var(--font-mono); font-size: 0.75rem; color: var(--accent);
+      padding: 0.25rem 0.75rem; border-radius: 9999px;
+      border: 1px solid hsl(38 82% 58% / 0.3); background: hsl(38 82% 58% / 0.05);
+      align-self: flex-start;
+    }
+    .timeline-desc { font-size: 0.875rem; color: var(--muted-foreground); font-style: italic; margin-bottom: 1rem; }
+    .timeline-card ul { list-style: none; margin-bottom: 1rem; }
+    .timeline-card li { font-size: 0.875rem; display: flex; gap: 0.5rem; margin-bottom: 0.5rem; }
+    .timeline-card li span { color: var(--primary); font-family: var(--font-mono); }
+    .projects-row { margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--border); }
+    .projects-label { font-family: var(--font-mono); font-size: 0.75rem; color: var(--accent); margin-bottom: 0.5rem; }
+    .projects-chips { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .project-chip { font-size: 0.75rem; padding: 0.375rem 0.75rem; border-radius: 0.5rem; border: 1px solid hsl(213 85% 62% / 0.2); background: hsl(213 85% 62% / 0.05); color: var(--muted-foreground); }
+
+    /* Certifications */
+    .cert-wrap { display: grid; gap: 2rem; grid-template-columns: 1fr; margin-top: 3rem; }
+    @media (min-width: 1024px) { .cert-wrap { grid-template-columns: 2fr 1fr; } }
+    .cert-grid { display: grid; gap: 1rem; grid-template-columns: 1fr; }
+    @media (min-width: 640px) { .cert-grid { grid-template-columns: repeat(2, 1fr); } }
+    .cert-item {
+      padding: 1rem; border-radius: 0.5rem; border: 1px solid var(--border);
+      background: hsl(160 30% 3% / 0.5); transition: all 0.2s;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .cert-item:hover { border-color: hsl(213 85% 62% / 0.4); }
+    .cert-name { font-weight: 500; font-size: 0.875rem; }
+    .cert-issuer { font-size: 0.75rem; color: var(--muted-foreground); font-family: var(--font-mono); }
+    .cert-year { font-family: var(--font-mono); font-size: 0.75rem; color: var(--accent); padding: 0.25rem 0.5rem; border-radius: 0.25rem; border: 1px solid hsl(38 82% 58% / 0.2); background: hsl(38 82% 58% / 0.05); }
+
+    .edu-card {
+      padding: 1.5rem; border-radius: 0.75rem; border: 1px solid var(--border);
+      background: hsl(160 30% 3% / 0.5); position: relative; overflow: hidden;
+    }
+    .edu-card svg { width: 40px; height: 40px; color: var(--primary); margin-bottom: 1rem; }
+    .edu-card h4 { font-weight: 600; margin-bottom: 0.25rem; }
+    .edu-card p { font-size: 0.875rem; color: var(--muted-foreground); margin-bottom: 0.75rem; }
+    .edu-card .edu-footer { display: flex; justify-content: space-between; padding-top: 0.75rem; border-top: 1px solid var(--border); }
+    .edu-card .edu-period { font-family: var(--font-mono); font-size: 0.75rem; color: var(--accent); }
+    .edu-card .edu-cgpa { font-family: var(--font-mono); font-size: 0.875rem; color: var(--primary); }
+
+    .section-header { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 1.5rem; }
+    .section-header svg { width: 20px; height: 20px; color: var(--primary); }
+    .section-header h3 { font-size: 1.25rem; font-weight: 600; font-family: var(--font-mono); }
+
+    .border-top { border-top: 1px solid var(--border); }
+    .bg-card-half { background: hsl(160 25% 5% / 0.2); }
+
+    /* Footer */
+    footer { position: relative; padding: 3rem 0; border-top: 1px solid var(--border); }
+    .footer-inner { display: flex; flex-direction: column; align-items: center; gap: 1.5rem; }
+    @media (min-width: 768px) { .footer-inner { flex-direction: row; justify-content: space-between; } }
+    .footer-logo { display: flex; align-items: center; gap: 0.5rem; font-family: var(--font-mono); font-weight: 700; color: var(--primary); }
+    .footer-links { display: flex; gap: 1.5rem; }
+    .footer-links a { color: var(--muted-foreground); transition: color 0.2s; }
+    .footer-links a:hover { color: var(--primary); }
+    .footer-links svg { width: 20px; height: 20px; }
+    .footer-bottom { margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid var(--border); text-align: center; }
+    .footer-bottom p { font-family: var(--font-mono); font-size: 0.75rem; color: var(--muted-foreground); }
+
+    /* Icon helper */
+    .icon { display: inline-block; vertical-align: middle; }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav id="navbar">
+    <div class="nav-inner">
+      <a href="#" class="nav-logo">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/></svg>
+        <span class="text-glow">SUJIT SHARMA</span>
+      </a>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#expertise">Leadership Domains</a>
+        <a href="#experience">Experience</a>
+        <a href="#certifications">Credentials</a>
+      </div>
+      <button class="nav-toggle" id="navToggle">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+      </button>
+    </div>
+    <div class="nav-mobile" id="navMobile">
+      <a href="#about">About</a>
+      <a href="#expertise">Leadership Domains</a>
+      <a href="#experience">Experience</a>
+      <a href="#certifications">Credentials</a>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section id="about" class="hero grid-bg">
+    <div class="absolute inset-0 scanline" style="position:absolute;inset:0;pointer-events:none;"></div>
+    <div style="position:absolute;inset:0;background:linear-gradient(to bottom, hsl(160 30% 3% / 0.5), transparent, hsl(160 30% 3%));pointer-events:none;"></div>
+
+    <div class="hero-grid" style="position:relative;">
+      <!-- Left: Intro -->
+      <div style="z-index:10;">
+        <div class="badge">
+          <span class="dot"></span>
+          OPEN TO SECURITY LEADERSHIP CONVERSATIONS
+        </div>
+
+        <h1 style="margin-top:1.25rem;">SUJIT <span class="text-primary text-glow">SHARMA</span></h1>
+        <p class="hero-subtitle">Security Program Leader — Enterprise Risk, Governance &amp; Detection Strategy</p>
+
+        <p class="hero-desc">
+          I lead enterprise security programs — from SIEM platform strategy to global compliance and governance — translating technical risk into decisions leadership can act on. <span class="text-primary" style="font-weight:600;">10+ years</span> spanning security engineering, SOC leadership, and cloud risk governance, with CISSP certification and program ownership across <span class="text-primary" style="font-weight:600;">50,000+ endpoints in 90+ countries</span>.
+        </p>
+
+        <div class="contact-row">
+          <a href="mailto:sujit.max9211@gmail.com" class="contact-chip">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--primary);"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+            sujit.max9211@gmail.com
+          </a>
+          <a href="tel:+919041002021" class="contact-chip">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--primary);"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            +91 90410 02021
+          </a>
+        </div>
+
+        <div class="meta-row">
+          <span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--accent);"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
+            linkedin.com/in/sujit9211
+          </span>
+          <span>
+             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--accent);"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg>
+            India
+          </span>
+        </div>
+      </div>
+
+      <!-- Right: Globe -->
+      <div class="globe-container">
+        <div class="globe-bg"></div>
+        <div id="globe-canvas" style="width:100%;height:100%;"></div>
+        <div class="globe-labels">
+          <span class="text-primary" style="display:flex;align-items:center;gap:0.5rem;">
+            <span style="width:8px;height:8px;border-radius:50%;background:var(--primary);"></span>
+            GLOBAL SECURITY FOOTPRINT
+          </span>
+          <span class="text-accent" style="display:flex;align-items:center;gap:0.5rem;">
+            <span style="width:8px;height:8px;border-radius:50%;background:var(--accent);"></span>
+            90+ COUNTRIES · 50,000+ ENDPOINTS
+          </span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats -->
+  <section class="stats">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-card">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--primary);"><rect width="20" height="14" x="2" y="7" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+          <div class="stat-value text-primary text-glow">10+</div>
+          <div class="stat-label">Years Experience</div>
+        </div>
+        <div class="stat-card">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--accent);"><path d="M15.144 21.595A6.06 6.06 0 0 1 12 18.755a6.06 6.06 0 0 1-3.144 2.845A6.6 6.6 0 0 1 4.5 21c.929-2.564.86-4.294.193-6.59C3.5 11.5 2 9 2 6.5 2 4.01 4.01 2 6.5 2c2.5 0 4.5 2 4.5 2s2-2 4.5-2C17.99 2 20 4.01 20 6.5c0 2.5-1.5 5-2.693 7.91-.667 2.296-.736 4.026.193 6.59a6.6 6.6 0 0 1-4.356.095z"/></svg>
+          <div class="stat-value text-accent text-glow">7</div>
+          <div class="stat-label">Certifications</div>
+        </div>
+        <div class="stat-card">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--primary);"><path d="M3 7V5c0-1.1.9-2 2-2h2"/><path d="M17 3h2c1.1 0 2 .9 2 2v2"/><path d="M21 17v2c0 1.1-.9 2-2 2h-2"/><path d="M7 21H5c-1.1 0-2-.9-2-2v-2"/><rect width="7" height="5" x="7" y="7" rx="1"/><path d="M3 7h7"/><path d="M3 12h7"/><path d="M14 7h7"/><path d="M14 12h7"/></svg>
+          <div class="stat-value text-primary text-glow">6+</div>
+          <div class="stat-label">Major Projects</div>
+        </div>
+        <div class="stat-card">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--accent);"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg>
+          <div class="stat-value text-accent text-glow">50K+</div>
+          <div class="stat-label">Endpoints Secured</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Leadership Philosophy -->
+  <section class="content border-top" style="padding:3.5rem 0;">
+    <div class="container">
+      <blockquote style="max-width:44rem;margin:0 auto;text-align:center;font-size:1.375rem;font-weight:500;line-height:1.5;color:var(--foreground);">
+        “Security is a business enabler, not a blocker. I build programs that reduce risk in terms the business already measures — cost, continuity, and trust — and scale that discipline across every site we operate in.”
+      </blockquote>
+    </div>
+  </section>
+
+  <!-- Expertise -->
+  <section id="expertise" class="content border-top">
+    <div class="container">
+      <p class="section-cmd">LEADERSHIP DOMAINS</p>
+      <h2 class="section-title">Where I Lead <span class="text-primary text-glow">&amp; Deliver</span></h2>
+      <p class="section-desc">Program areas where I own outcomes end-to-end, from strategy through operational execution.</p>
+
+      <div class="exp-grid" id="expertise-grid"></div>
+    </div>
+  </section>
+
+  <!-- Experience -->
+  <section id="experience" class="content border-top">
+    <div class="container">
+      <p class="section-cmd">CAREER TIMELINE</p>
+      <h2 class="section-title">Leadership <span class="text-primary text-glow">Track Record</span></h2>
+
+      <div class="timeline">
+        <div class="timeline-line"></div>
+        <div id="experience-list"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Certifications & Education -->
+  <section id="certifications" class="content border-top bg-card-half">
+    <div class="container">
+      <p class="section-cmd">CREDENTIALS &amp; EDUCATION</p>
+      <h2 class="section-title">Certifications <span class="text-primary text-glow">&amp;</span> Education</h2>
+
+      <div class="cert-wrap">
+        <div>
+          <div class="section-header">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15.144 21.595A6.06 6.06 0 0 1 12 18.755a6.06 6.06 0 0 1-3.144 2.845A6.6 6.6 0 0 1 4.5 21c.929-2.564.86-4.294.193-6.59C3.5 11.5 2 9 2 6.5 2 4.01 4.01 2 6.5 2c2.5 0 4.5 2 4.5 2s2-2 4.5-2C17.99 2 20 4.01 20 6.5c0 2.5-1.5 5-2.693 7.91-.667 2.296-.736 4.026.193 6.59a6.6 6.6 0 0 1-4.356.095z"/></svg>
+            <h3>Certifications</h3>
+          </div>
+          <div class="cert-grid" id="cert-list"></div>
+        </div>
+
+        <div>
+          <div class="section-header">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0z"/><path d="M22 10v6"/><path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5"/></svg>
+            <h3>Education</h3>
+          </div>
+          <div class="edu-card">
+            <div style="position:absolute;top:0;right:0;width:96px;height:96px;background:hsl(213 85% 62% / 0.05);border-radius:50%;filter:blur(40px);"></div>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0z"/><path d="M22 10v6"/><path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5"/></svg>
+            <h4>Bachelor of Technology, Computer Science</h4>
+            <p>Guru Nanak Dev University, Amritsar</p>
+            <div class="edu-footer">
+              <span class="edu-period">2013 – 2017</span>
+              <span class="edu-cgpa">CGPA: 7.4</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-logo">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/></svg>
+          <span>SUJIT_SHARMA</span>
+        </div>
+        <div class="footer-links">
+          <a href="mailto:sujit.max9211@gmail.com"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg></a>
+          <a href="tel:+919041002021"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></a>
+          <a href="https://linkedin.com/in/sujit9211" target="_blank" rel="noopener noreferrer"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg></a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© <span id="year"></span> Sujit Sharma — Enterprise Security Leadership. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Three.js via CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script>
+    // === Data ===
+    const EXPERTISE = [
+      { title: 'Security Program & Detection Strategy', items: ['CrowdStrike Next-Gen SIEM (Falcon Logscale QL/FQL)', 'Splunk (Cloud & Enterprise)', 'False positive reduction', 'Telemetry cost optimization'] },
+      { title: 'Enterprise Endpoint Risk Reduction', items: ['CrowdStrike Falcon', 'Carbon Black', 'Microsoft Defender', 'Symantec — device hardening, ASR'] },
+      { title: 'Human-Layer Risk & Awareness', items: ['Email security governance & operation', 'Phishing simulation programs', 'Organization-wide awareness training'] },
+      { title: 'Cloud Security Governance', items: ['AWS (Certified Cloud Practitioner)', 'Microsoft Azure', 'Hybrid cloud security', 'Cloud workload protection'] },
+      { title: 'Vulnerability & Attack Surface Governance', items: ['CrowdStrike VM, Rapid7, Nessus, ZAP', 'Enterprise-wide VM standardization', 'Remediation ownership frameworks', 'External attack surface management'] },
+      { title: 'Security Operations Leadership', items: ['Incident response direction', 'Threat hunting (IOC & hypothesis-driven)', 'SOC build-out from zero', 'IoT security governance'] },
+    ];
+
+    const EXPERIENCE = [
+      {
+        role: 'Information Security Engineer (Senior)', company: 'Tenneco', period: 'April 2021 – Present',
+        desc: 'Global Risk & Security Management — Enterprise scope: 50,000+ systems across 400+ sites.',
+        achievements: [
+          'Led deployment, administration, and optimization of enterprise security platforms (CrowdStrike, Zscaler, Palo Alto, Splunk) across 50,000+ endpoints.',
+          'Designed and tuned CrowdStrike Next-Gen SIEM and Splunk detections using Falcon Logscale QL and SPL — reducing false positives by ~40%.',
+          'Reduced SIEM data ingestion costs by ~70% through telemetry optimization, noisy log filtering, and refined correlation logic.',
+          'Strengthened endpoint security posture via CrowdStrike device hardening, policy enforcement, and ASR controls across Windows, macOS, and Linux.',
+        ],
+        projects: ['SIEM Migration Program — zero critical incidents', 'Business Unit Separation — full security workstream', 'Attack Surface Management — closed ~90% exposed ports', 'Enterprise AV & VM Standardization', 'Global IoT Security Standardization', 'Threat Intelligence Framework — IOC monitoring'],
+      },
+      {
+        role: 'SOC Engineer', company: 'L3Harris Technologies', period: 'Aug 2019 – Apr 2021',
+        desc: 'Built and operationalized a SOC from scratch for FTI India, covering a 125-airport national network.',
+        achievements: [
+          'Deployed SIEM, EDR, vulnerability management, and email security under aggressive timelines with no major incidents.',
+          'Technologies: ArcSight SIEM, McAfee AV, Cisco IPS/ISE/Stealthwatch, Nessus, F5 BIG-IP, RSA',
+        ],
+        projects: [],
+      },
+      {
+        role: 'Information Security Engineer', company: 'FIS Global', period: 'Feb 2018 – Aug 2019',
+        desc: 'Member of Incident Response and Threat Hunting team supporting global financial systems — 24x7 environment.',
+        achievements: [
+          'Conducted hypothesis-driven threat hunting using IOCs, behavioral analytics, and SIEM correlation rules.',
+          'Performed continuous vulnerability management and security monitoring across large-scale banking infrastructure.',
+          'Technologies: Splunk, RSA SIEM, Symantec, McAfee EDR, Cisco IPS, FireEye IDS',
+        ],
+        projects: [],
+      },
+      {
+        role: 'Security Analyst', company: 'ELI Research', period: 'Jul 2017 – Dec 2017',
+        desc: 'Supported internal SOC operations including vulnerability management, alert triage, and incident investigations.',
+        achievements: ['Technologies: Alert Logic SIEM, Trend Micro EDR, Cisco IPS, Forcepoint DLP'],
+        projects: [],
+      },
+    ];
+
+    const CERTS = [
+      { name: 'CISSP', issuer: '(ISC)²', year: '2023' },
+      { name: 'AWS Certified Cloud Practitioner', issuer: 'CLF-C02', year: '2025' },
+      { name: 'Splunk Cloud Administration', issuer: 'Splunk', year: '2023' },
+      { name: 'Splunk Data Administration', issuer: 'Splunk', year: '2023' },
+      { name: 'Microsoft Azure Fundamentals', issuer: 'AZ-900', year: '2021' },
+      { name: 'ArcSight Administration', issuer: 'Micro Focus', year: '2021' },
+      { name: 'CEH – Certified Ethical Hacker', issuer: 'EC-Council', year: '2017' },
+      { name: 'CCNA', issuer: 'Cisco', year: '2016' },
+    ];
+
+    // === Render Expertise ===
+    const expIcons = ['terminal', 'shield', 'mail', 'cloud', 'bug', 'server'];
+    const expIconSvg = {
+      terminal: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 17 10 11 4 5"/><line x1="12" x2="20" y1="19" y2="19"/></svg>',
+      shield: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg>',
+      mail: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>',
+      cloud: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"/></svg>',
+      bug: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m8 2 1.88 1.88"/><path d="M14.12 3.88 16 2"/><path d="M9 7.13v-1a3.003 3.003 0 1 1 6 0v1"/><path d="M12 20c-3.3 0-6-2.7-6-6v-3a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v3c0 3.3-2.7 6-6 6"/><path d="M12 20v-9"/><path d="M6.53 9C4.6 8.8 3 7.1 3 5"/><path d="M6 13H2"/><path d="M3 21c0-2.1 1.7-3.9 3.8-4"/><path d="M20.97 5c0 2.1-1.6 3.8-3.5 4"/><path d="M22 13h-4"/><path d="M17.2 17c2.1.1 3.8 1.9 3.8 4"/></svg>',
+      server: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="8" x="2" y="2" rx="2" ry="2"/><rect width="20" height="8" x="2" y="14" rx="2" ry="2"/><line x1="6" x2="6.01" y1="6" y2="6"/><line x1="6" x2="6.01" y1="18" y2="18"/></svg>',
+    };
+
+    document.getElementById('expertise-grid').innerHTML = EXPERTISE.map((exp, i) => `
+      <div class="exp-card">
+        ${expIconSvg[expIcons[i]]}
+        <h3>${exp.title}</h3>
+        <ul>
+          ${exp.items.map(item => `<li><span>·</span><span>${item}</span></li>`).join("")}
+        </ul>
+      </div>
+    `).join('');
+
+    // === Render Experience ===
+    document.getElementById('experience-list').innerHTML = EXPERIENCE.map(job => `
+      <div class="timeline-item">
+        <div class="timeline-node"></div>
+        <div class="timeline-card">
+          <div class="timeline-header">
+            <div>
+              <div class="timeline-role">${job.role}</div>
+              <div class="timeline-company">${job.company}</div>
+            </div>
+            <span class="timeline-period">${job.period}</span>
+          </div>
+          <p class="timeline-desc">${job.desc}</p>
+          <ul>
+            ${job.achievements.map(a => `<li><span>·</span><span>${a}</span></li>`).join("")}
+          </ul>
+          ${job.projects.length ? `
+            <div class="projects-row">
+              <p class="projects-label">Key Initiatives</p>
+              <div class="projects-chips">
+                ${job.projects.map(p => `<span class="project-chip">${p}</span>`).join('')}
+              </div>
+            </div>
+          ` : ''}
+        </div>
+      </div>
+    `).join('');
+
+    // === Render Certifications ===
+    document.getElementById('cert-list').innerHTML = CERTS.map(c => `
+      <div class="cert-item">
+        <div>
+          <div class="cert-name">${c.name}</div>
+          <div class="cert-issuer">${c.issuer}</div>
+        </div>
+        <span class="cert-year">${c.year}</span>
+      </div>
+    `).join('');
+
+    // === Footer year ===
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // === Navbar scroll ===
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 30);
+    });
+
+    // === Mobile nav toggle ===
+    const navToggle = document.getElementById('navToggle');
+    const navMobile = document.getElementById('navMobile');
+    navToggle.addEventListener('click', () => navMobile.classList.toggle('open'));
+    navMobile.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navMobile.classList.remove('open')));
+
+    // === Globe (Three.js) ===
+    function initGlobe() {
+      const container = document.getElementById('globe-canvas');
+      if (!container || typeof THREE === 'undefined') return;
+
+      const width = container.clientWidth;
+      const height = container.clientHeight;
+
+      const scene = new THREE.Scene();
+      const camera = new THREE.PerspectiveCamera(45, width / height, 0.1, 1000);
+      camera.position.z = 3.2;
+
+      const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+      renderer.setSize(width, height);
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+      container.appendChild(renderer.domElement);
+
+      const globeGroup = new THREE.Group();
+      scene.add(globeGroup);
+
+      // Inner sphere
+      const innerGeom = new THREE.SphereGeometry(0.98, 48, 48);
+      globeGroup.add(new THREE.Mesh(innerGeom, new THREE.MeshBasicMaterial({ color: 0x0a1120, transparent: true, opacity: 0.92 })));
+
+      // Wireframe
+      const wireframe = new THREE.WireframeGeometry(new THREE.SphereGeometry(1, 32, 32));
+      globeGroup.add(new THREE.LineSegments(wireframe, new THREE.LineBasicMaterial({ color: 0x4c8cff, transparent: true, opacity: 0.14 })));
+
+      // Lat/Lng lines
+      const latLngMat = new THREE.LineBasicMaterial({ color: 0x4c8cff, transparent: true, opacity: 0.22 });
+      for (let i = 0; i <= 8; i++) {
+        const lat = (i / 8 - 0.5) * Math.PI;
+        const r = Math.cos(lat), y = Math.sin(lat);
+        const pts = [];
+           for (let j = 0; j <= 64; j++) {
+          const lng = (j / 64) * 2 * Math.PI;
+          pts.push(new THREE.Vector3(r * Math.cos(lng), y, r * Math.sin(lng)));
+        }
+        globeGroup.add(new THREE.Line(new THREE.BufferGeometry().setFromPoints(pts), latLngMat));
+      }
+      for (let i = 0; i <= 12; i++) {
+        const lng = (i / 12) * 2 * Math.PI;
+        const pts = [];
+        for (let j = 0; j <= 32; j++) {
+          const lat = (j / 32 - 0.5) * Math.PI;
+          pts.push(new THREE.Vector3(Math.cos(lat) * Math.cos(lng), Math.sin(lat), Math.cos(lat) * Math.sin(lng)));
+        }
+        globeGroup.add(new THREE.Line(new THREE.BufferGeometry().setFromPoints(pts), latLngMat));
+      }
+
+      // Surface dots
+      function randSphere() {
+        const u = Math.random(), v = Math.random();
+        const theta = 2 * Math.PI * u, phi = Math.acos(2 * v - 1);
+        return new THREE.Vector3(Math.sin(phi) * Math.cos(theta), Math.sin(phi) * Math.sin(theta), Math.cos(phi));
+      }
+
+      const dotCount = 300;
+      const dotsGeom = new THREE.BufferGeometry();
+      const dotPos = new Float32Array(dotCount * 3);
+      for (let i = 0; i < dotCount; i++) {
+        const p = randSphere();
+        dotPos[i * 3] = p.x; dotPos[i * 3 + 1] = p.y; dotPos[i * 3 + 2] = p.z;
+      }
+      dotsGeom.setAttribute('position', new THREE.BufferAttribute(dotPos, 3));
+      globeGroup.add(new THREE.Points(dotsGeom, new THREE.PointsMaterial({ color: 0x4c8cff, size: 0.02, transparent: true, opacity: 0.7 })));
+
+      // Attack arcs
+      const arcs = [];
+      for (let i = 0; i < 12; i++) {
+        const start = randSphere(), end = randSphere();
+        const mid = start.clone().add(end).multiplyScalar(0.5);
+        const dist = start.distanceTo(end);
+        mid.normalize().multiplyScalar(1 + dist * 0.35);
+        const curve = new THREE.QuadraticBezierCurve3(start, mid, end);
+        const points = curve.getPoints(60);
+        const isPrimary = Math.random() > 0.4;
+        const color = isPrimary ? 0xe3a93b : 0x4c8cff;
+        const mat = new THREE.LineBasicMaterial({ color, transparent: true, opacity: 0 });
+        globeGroup.add(new THREE.Line(new THREE.BufferGeometry().setFromPoints(points), mat));
+        arcs.push({ line: globeGroup.children[globeGroup.children.length - 1], progress: Math.random() * 2, speed: 0.008 + Math.random() * 0.015, color });
+      }
+
+      // Impact dots
+      const impacts = [];
+      for (let i = 0; i < 5; i++) {
+        const p = randSphere();
+        const mesh = new THREE.Mesh(new THREE.SphereGeometry(0.025, 8, 8), new THREE.MeshBasicMaterial({ color: 0xe3a93b, transparent: true, opacity: 0 }));
+        mesh.position.copy(p);
+        globeGroup.add(mesh);
+        impacts.push({ mesh, phase: Math.random() * Math.PI * 2 });
+      }
+
+      // Mouse
+      let mouseX = 0, mouseY = 0;
+      container.addEventListener('mousemove', (e) => {
+        const rect = container.getBoundingClientRect();
+        mouseX = ((e.clientX - rect.left) / rect.width - 0.5) * 0.5;
+        mouseY = ((e.clientY - rect.top) / rect.height - 0.5) * 0.5;
+      });
+
+      function animate() {
+        requestAnimationFrame(animate);
+        globeGroup.rotation.y += 0.0015 + mouseX * 0.01;
+        globeGroup.rotation.x += (mouseY * 0.01 - globeGroup.rotation.x) * 0.05;
+
+        arcs.forEach(arc => {
+          arc.progress += arc.speed;
+          if (arc.progress > 1.5) arc.progress = -0.3;
+          if (arc.progress < 0) arc.line.material.opacity = 0;
+          else if (arc.progress < 0.3) arc.line.material.opacity = arc.progress / 0.3;
+          else if (arc.progress < 0.7) arc.line.material.opacity = 1;
+          else arc.line.material.opacity = (1.5 - arc.progress) / 0.8;
+        });
+
+        impacts.forEach(d => {
+          d.phase += 0.03;
+          d.mesh.material.opacity = 0.4 + Math.sin(d.phase) * 0.4;
+          d.mesh.scale.setScalar(1 + Math.sin(d.phase) * 0.5);
+        });
+
+        renderer.render(scene, camera);
+      }
+      animate();
+
+      window.addEventListener('resize', () => {
+        const w = container.clientWidth, h = container.clientHeight;
+        if (w === 0 || h === 0) return;
+        camera.aspect = w / h;
+        camera.updateProjectionMatrix();
+        renderer.setSize(w, h);
+      });
+    }
+
+    // Wait for Three.js to load
+    if (typeof THREE !== 'undefined') {
+      initGlobe();
+    } else {
+      window.addEventListener('load', initGlobe);
+    }
+  </script>
+</body>
+</html>
