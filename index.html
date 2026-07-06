@@ -11,13 +11,14 @@
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
- 
+
 <div class="scanline" aria-hidden="true"></div>
- 
+
 <header class="hero">
   <nav class="topbar">
     <span class="brand">SS<span class="brand-dot">/</span>SEC</span>
     <div class="nav-links">
+      <a href="#globe">Threat map</a>
       <a href="#log">Experience</a>
       <a href="#platforms">Platforms</a>
       <a href="#posts">Posts</a>
@@ -25,7 +26,7 @@
       <a href="#contact">Contact</a>
     </div>
   </nav>
- 
+
   <div class="hero-grid">
     <div class="hero-copy">
       <div class="hero-id">
@@ -41,7 +42,7 @@
         <a class="btn btn-ghost" href="#contact">Get in touch</a>
       </div>
     </div>
- 
+
     <div class="status-panel" role="group" aria-label="Program status summary">
       <div class="status-header">
         <span class="status-dot" aria-hidden="true"></span>
@@ -68,17 +69,55 @@
     </div>
   </div>
 </header>
- 
+
 <main>
- 
+
+  <section class="section" id="globe">
+    <div class="section-head">
+      <p class="eyebrow">Illustrative visualization — simulated traffic, not live threat telemetry</p>
+      <h2>Global traffic map</h2>
+    </div>
+    <div class="globe-wrap">
+      <canvas id="globeCanvas" aria-hidden="true"></canvas>
+      <div class="globe-readout">
+        <div class="readout-row"><span>Simulated events</span><span id="eventCount" class="mono">0</span></div>
+        <div class="readout-row"><span>Active arcs</span><span id="arcCount" class="mono">0</span></div>
+        <div class="readout-row"><span>Mode</span><span class="mono">DEMO</span></div>
+      </div>
+    </div>
+    <p class="caption">This map animates simulated connections between regions for visual effect. It is not fed by a real threat-intelligence feed.</p>
+  </section>
+
+  <section class="section alt" id="session">
+    <div class="section-head">
+      <p class="eyebrow">Shown only to you · nothing is logged or stored</p>
+      <h2>Your session</h2>
+    </div>
+    <div class="session-panel">
+      <div class="session-col">
+        <div class="session-row"><span>IP address</span><span id="sIp" class="mono">detecting…</span></div>
+        <div class="session-row"><span>City / region</span><span id="sCity" class="mono">detecting…</span></div>
+        <div class="session-row"><span>Country</span><span id="sCountry" class="mono">detecting…</span></div>
+        <div class="session-row"><span>ISP</span><span id="sIsp" class="mono">detecting…</span></div>
+      </div>
+      <div class="session-col">
+        <div class="session-row"><span>Browser</span><span id="sBrowser" class="mono">—</span></div>
+        <div class="session-row"><span>OS / platform</span><span id="sOs" class="mono">—</span></div>
+        <div class="session-row"><span>Screen</span><span id="sScreen" class="mono">—</span></div>
+        <div class="session-row"><span>Timezone</span><span id="sTz" class="mono">—</span></div>
+      </div>
+    </div>
+    <p class="caption">Pulled client-side, in your browser, from your own connection — nothing here is sent to a server or saved.</p>
+  </section>
+
   <section class="section" id="log">
     <div class="section-head">
       <p class="eyebrow">Career events, sorted newest first</p>
       <h2>Experience log</h2>
     </div>
- 
+
     <div class="feed" role="log">
- 
+
       <article class="entry" data-sev="critical">
         <div class="entry-meta">
           <span class="sev sev-critical">CRITICAL</span>
@@ -89,7 +128,40 @@
           <p>Own detection engineering and cloud security automation for a 50,000+ endpoint, 90+ country environment. Administer CrowdStrike Falcon &amp; NG-SIEM, Zscaler ZIA/ZPA, Rapid7 InsightVM, Palo Alto NGFW/Panorama, Microsoft 365/Defender, Imperva, and AWS-based response pipelines.</p>
         </div>
       </article>
- 
+
+      <article class="entry" data-sev="high">
+        <div class="entry-meta">
+          <span class="sev sev-high">RESOLVED</span>
+          <span class="ts">2025</span>
+        </div>
+        <div class="entry-body">
+          <h3>SIEM Platform Migration</h3>
+          <p>Led an end-to-end SIEM platform migration for a global manufacturing enterprise, delivering the transition within the planned timeline with zero critical incidents or security coverage gaps.</p>
+        </div>
+      </article>
+
+      <article class="entry" data-sev="high">
+        <div class="entry-meta">
+          <span class="sev sev-high">RESOLVED</span>
+          <span class="ts">2025</span>
+        </div>
+        <div class="entry-body">
+          <h3>Attack Surface Management</h3>
+          <p>Deployed attack surface management tooling and led a remediation program that closed the large majority of externally exposed ports flagged in an outside-in risk assessment.</p>
+        </div>
+      </article>
+
+      <article class="entry" data-sev="info">
+        <div class="entry-meta">
+          <span class="sev sev-info">LOGGED</span>
+          <span class="ts">2025</span>
+        </div>
+        <div class="entry-body">
+          <h3>Security Workstream — Corporate Restructuring</h3>
+          <p>Led the security workstream for a major corporate restructuring initiative, standing up independent SIEM, EDR, and vulnerability management infrastructure for a newly separated business unit.</p>
+        </div>
+      </article>
+
       <article class="entry" data-sev="high">
         <div class="entry-meta">
           <span class="sev sev-high">RESOLVED</span>
@@ -100,7 +172,40 @@
           <p>Self-initiated program that cut non-compliant workstations by 90% and lifted CrowdStrike coverage to 97% across 30,000 machines and 88+ global sites. Presented as a capstone business project for Tenneco's Emerging Leader Development Programme.</p>
         </div>
       </article>
- 
+
+      <article class="entry" data-sev="info">
+        <div class="entry-meta">
+          <span class="sev sev-info">LOGGED</span>
+          <span class="ts">2024 — 2025</span>
+        </div>
+        <div class="entry-body">
+          <h3>Enterprise Antivirus &amp; Vulnerability Management Standardization</h3>
+          <p>Led two global consolidation initiatives, standardizing endpoint protection and vulnerability management platforms across all regions.</p>
+        </div>
+      </article>
+
+      <article class="entry" data-sev="info">
+        <div class="entry-meta">
+          <span class="sev sev-info">LOGGED</span>
+          <span class="ts">2024 — 2025</span>
+        </div>
+        <div class="entry-body">
+          <h3>Global IoT Security Standardization</h3>
+          <p>Defined baseline security controls and governance for IoT devices, including cameras and smart displays, across all company regions.</p>
+        </div>
+      </article>
+
+      <article class="entry" data-sev="info">
+        <div class="entry-meta">
+          <span class="sev sev-info">MONITORING</span>
+          <span class="ts">Ongoing</span>
+        </div>
+        <div class="entry-body">
+          <h3>Threat Intelligence Framework</h3>
+          <p>Designed and deployed an IOC monitoring workflow built on new threat-intelligence capabilities, improving early warning detection.</p>
+        </div>
+      </article>
+
       <article class="entry" data-sev="info">
         <div class="entry-meta">
           <span class="sev sev-info">MONITORING</span>
@@ -111,33 +216,66 @@
           <p>Building a tiered maturity model for site and plant IT teams spanning OT, DMZ, IAM, network, and SOC domains — designed to give leadership a common language for security readiness across every facility.</p>
         </div>
       </article>
- 
-      <article class="entry" data-sev="info">
-        <div class="entry-meta">
-          <span class="sev sev-info">LOGGED</span>
-          <span class="ts">2019 — 2024</span>
-        </div>
-        <div class="entry-body">
-          <h3>Incident Response &amp; Threat Hunting — FIS Global</h3>
-          <p>Investigated and hunted threats across financial systems, building detection logic for a high-stakes, highly regulated environment.</p>
-        </div>
-      </article>
- 
+
       <article class="entry" data-sev="high">
         <div class="entry-meta">
           <span class="sev sev-high">BUILT</span>
-          <span class="ts">Earlier</span>
+          <span class="ts">Aug 2019 — Apr 2021</span>
         </div>
         <div class="entry-body">
-          <h3>SOC Build — National Airport Network, L3Harris Technologies</h3>
-          <p>Stood up security operations capability for critical national infrastructure, laying groundwork for detection and monitoring at scale.</p>
+          <h3>SOC Engineer — L3Harris Technologies</h3>
+          <p>Built and operationalized a Security Operations Center from scratch for a 125-airport national network, deploying SIEM, EDR, vulnerability management, and email security under aggressive timelines with no major incidents.</p>
+          <div class="tool-tags">
+            <span class="tool-tag">ArcSight SIEM</span>
+            <span class="tool-tag">McAfee AV</span>
+            <span class="tool-tag">Cisco IPS / ISE / Stealthwatch</span>
+            <span class="tool-tag">Nessus</span>
+            <span class="tool-tag">F5 BIG-IP</span>
+            <span class="tool-tag">RSA</span>
+          </div>
         </div>
       </article>
- 
+
+      <article class="entry" data-sev="info">
+        <div class="entry-meta">
+          <span class="sev sev-info">LOGGED</span>
+          <span class="ts">Feb 2018 — Aug 2019</span>
+        </div>
+        <div class="entry-body">
+          <h3>Information Security Engineer — FIS Global</h3>
+          <p>Member of the Incident Response and Threat Hunting team supporting global financial systems in a high-compliance, 24x7 environment. Conducted hypothesis-driven threat hunting using IOCs, behavioral analytics, and SIEM correlation rules, plus continuous vulnerability management across large-scale banking infrastructure.</p>
+          <div class="tool-tags">
+            <span class="tool-tag">Splunk</span>
+            <span class="tool-tag">RSA SIEM</span>
+            <span class="tool-tag">Symantec</span>
+            <span class="tool-tag">McAfee EDR</span>
+            <span class="tool-tag">Cisco IPS</span>
+            <span class="tool-tag">FireEye IDS</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="entry" data-sev="info">
+        <div class="entry-meta">
+          <span class="sev sev-info">LOGGED</span>
+          <span class="ts">Jul 2017 — Dec 2017</span>
+        </div>
+        <div class="entry-body">
+          <h3>Security Analyst — ELI Research</h3>
+          <p>Supported internal SOC operations including vulnerability management, alert triage, and incident investigations.</p>
+          <div class="tool-tags">
+            <span class="tool-tag">Alert Logic SIEM</span>
+            <span class="tool-tag">Trend Micro EDR</span>
+            <span class="tool-tag">Cisco IPS</span>
+            <span class="tool-tag">Forcepoint DLP</span>
+          </div>
+        </div>
+      </article>
+
     </div>
   </section>
- 
-  <section class="section" id="platforms">
+
+  <section class="section alt" id="platforms">
     <div class="section-head">
       <p class="eyebrow">Tools administered in production</p>
       <h2>Platforms</h2>
@@ -149,6 +287,7 @@
           <span class="chip">CrowdStrike Falcon</span>
           <span class="chip">NG-SIEM (LogScale)</span>
           <span class="chip">Splunk</span>
+          <span class="chip">ArcSight</span>
         </div>
       </div>
       <div class="platform-group">
@@ -171,39 +310,39 @@
       </div>
     </div>
   </section>
- 
-  <section class="section alt" id="posts">
+
+  <section class="section" id="posts">
     <div class="section-head">
       <p class="eyebrow">From LinkedIn</p>
       <h2>Recent posts</h2>
     </div>
     <div class="post-grid">
- 
+
       <a class="post-card" href="https://linkedin.com/in/your-profile" target="_blank" rel="noopener">
         <span class="post-tag">POST</span>
         <p class="post-excerpt">Replace this with the first line or two of your recent post — keep it short, like a preview card.</p>
         <span class="post-date">Mon DD, YYYY →</span>
       </a>
- 
+
       <a class="post-card" href="https://linkedin.com/in/your-profile" target="_blank" rel="noopener">
         <span class="post-tag">POST</span>
         <p class="post-excerpt">Replace this with the first line or two of another recent post.</p>
         <span class="post-date">Mon DD, YYYY →</span>
       </a>
- 
+
       <a class="post-card" href="https://linkedin.com/in/your-profile" target="_blank" rel="noopener">
         <span class="post-tag">POST</span>
         <p class="post-excerpt">Replace this with the first line or two of a third recent post.</p>
         <span class="post-date">Mon DD, YYYY →</span>
       </a>
- 
+
     </div>
     <p class="post-footnote">See all posts on <a href="https://linkedin.com/in/your-profile" target="_blank" rel="noopener">LinkedIn →</a></p>
   </section>
- 
-  <section class="section" id="certifications">
+
+  <section class="section alt" id="certifications">
     <div class="section-head">
-      <p class="eyebrow">Held &amp; in progress</p>
+      <p class="eyebrow">Held, in progress, and education</p>
       <h2>Certifications</h2>
     </div>
     <div class="cert-columns">
@@ -225,10 +364,16 @@
           <li><span class="cert-tag">27001</span> ISO 27001 Foundation, with ISO 42001 awareness</li>
         </ul>
       </div>
+      <div class="cert-column">
+        <h3>Education</h3>
+        <ul class="cert-list">
+          <li><span class="cert-tag">B.TECH</span> Computer Science, Guru Nanak Dev University, Amritsar · 2013 – 2017</li>
+        </ul>
+      </div>
     </div>
   </section>
- 
-  <section class="section alt" id="contact">
+
+  <section class="section" id="contact">
     <div class="contact-panel">
       <div>
         <p class="eyebrow">Open to conversations on security architecture &amp; leadership</p>
@@ -240,15 +385,15 @@
       </div>
     </div>
   </section>
- 
+
 </main>
- 
+
 <footer class="footer">
   <span>© <span id="year"></span> Sujit Sharma</span>
   <span class="footer-sep">·</span>
   <span>Built &amp; deployed on GitHub Pages</span>
 </footer>
- 
+
 <script src="script.js"></script>
 </body>
 </html>
